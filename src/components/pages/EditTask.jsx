@@ -26,7 +26,7 @@ const EditTask = () => {
     };
 
     fetchTask();
-  }, [id]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
