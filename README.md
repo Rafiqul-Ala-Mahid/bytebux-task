@@ -12,12 +12,18 @@ Follow the steps below to set up and run the frontend part of this project:
    ```bash
    git clone https://github.com/Rafiqul-Ala-Mahid/bytebux-task.git
 2. **Navigate to the Project Directory
+
+   Change to the project directory:
    ```bash
    cd bytebux-task
-3. **Install Dependencies
+4. **Install Dependencies
+
+   Install the required dependencies using npm:
    ```bash
    npm install
-4. **Run the Development Server
+6. **Run the Development Server
+
+   Start the development server:
    ```bash
    npm run dev
 
