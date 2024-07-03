@@ -12,27 +12,27 @@ const AddTask = () => {
     const newTask = { title, description, completed };
 
     try {
-        const response = await fetch('http://localhost:4000/tasks', {
-        method: 'POST',
+      const response = await fetch("http://localhost:4000/tasks", {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(newTask),
-        });
+      });
 
-        if (!response.ok) {
-        throw new Error('Failed to add task');
-        }
+      if (!response.ok) {
+        throw new Error("Failed to add task");
+      }
 
-        console.log('Task added successfully:', newTask);
-        navigateTo("/tasks");
+      console.log("Task added successfully:", newTask);
+      navigateTo("/tasks");
     } catch (error) {
-        console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container lg:w-[50%] mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">Add New Task</h1>
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
         <div className="mb-4">
@@ -76,7 +76,9 @@ const AddTask = () => {
               checked={completed}
               onChange={(e) => setCompleted(e.target.checked)}
             />
-            <span className="ml-2 text-sm text-gray-700">Completed</span>
+            <span className="ml-2 text-sm font-bold text-gray-700">
+              Completed
+            </span>
           </label>
         </div>
         <div className="flex items-center justify-end">

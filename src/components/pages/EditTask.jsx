@@ -2,63 +2,63 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const EditTask = () => {
-   const { id } = useParams();
-   const navigateTo = useNavigate();
-   const [task, setTask] = useState({
-     title: "",
-     description: "",
-     completed: false,
-   });
+  const { id } = useParams();
+  const navigateTo = useNavigate();
+  const [task, setTask] = useState({
+    title: "",
+    description: "",
+    completed: false,
+  });
 
-   useEffect(() => {
-     const fetchTask = async () => {
-       try {
-         const response = await fetch(`http://localhost:4000/tasks/${id}`);
-         if (!response.ok) {
-           throw new Error("Task not found");
-         }
-         const data = await response.json();
-         setTask(data);
-       } catch (error) {
-         console.error("Error fetching task:", error);
-         navigateTo("/tasks");
-       }
-     };
+  useEffect(() => {
+    const fetchTask = async () => {
+      try {
+        const response = await fetch(`http://localhost:4000/tasks/${id}`);
+        if (!response.ok) {
+          throw new Error("Task not found");
+        }
+        const data = await response.json();
+        setTask(data);
+      } catch (error) {
+        console.error("Error fetching task:", error);
+        navigateTo("/tasks");
+      }
+    };
 
-     fetchTask();
-   }, [id]);
+    fetchTask();
+  }, [id]);
 
-   const handleSubmit = async (e) => {
-     e.preventDefault();
-     try {
-       const response = await fetch(`http://localhost:4000/tasks/${id}`, {
-         method: "PUT",
-         headers: {
-           "Content-Type": "application/json",
-         },
-         body: JSON.stringify(task),
-       });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`http://localhost:4000/tasks/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(task),
+      });
 
-       if (!response.ok) {
-         throw new Error("Failed to update task");
-       }
+      if (!response.ok) {
+        throw new Error("Failed to update task");
+      }
 
-       navigateTo("/tasks");
-     } catch (error) {
-       console.error("Error updating task:", error);
-     }
-   };
+      navigateTo("/tasks");
+    } catch (error) {
+      console.error("Error updating task:", error);
+    }
+  };
 
-   const handleChange = (e) => {
-     const { name, value, type, checked } = e.target;
-     setTask((prevTask) => ({
-       ...prevTask,
-       [name]: type === "checkbox" ? checked : value,
-     }));
-   };
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setTask((prevTask) => ({
+      ...prevTask,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container lg:w-[50%] mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">Edit Task</h1>
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
         <div className="mb-4">
@@ -103,10 +103,12 @@ const EditTask = () => {
               checked={task.completed}
               onChange={handleChange}
             />
-            <span className="ml-2 text-gray-700">Completed</span>
+            <span className="ml-2 font-bold text-sm text-gray-700">
+              Completed
+            </span>
           </label>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-end">
           <button
             type="submit"
             className="bg-[#2E9CCD] hover:bg-[#114f6a] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

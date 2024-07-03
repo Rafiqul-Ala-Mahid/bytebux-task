@@ -47,12 +47,12 @@ const ViewTask = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container lg:w-[50%] mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">View Tasks</h1>
       {tasks.length === 0 ? (
         <p className="text-gray-700">No tasks available.</p>
       ) : (
-        tasks.map((task,index) => (
+        tasks.map((task, index) => (
           <Task
             key={index}
             id={task._id}
