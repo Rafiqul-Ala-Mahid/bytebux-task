@@ -6,7 +6,7 @@ This project is the frontend part of the Bytebux Task application.
 ## Short Overview about the project:
 I've developed the "Bytebux Task" project, implementing comprehensive task management functionalities using the MERN stack. This includes creating, reading, updating, and deleting tasks via a RESTful API, supported by MongoDB for data storage. The front-end features a responsive user interface built with React, enabling users to interact seamlessly with task lists, add new tasks, edit existing ones, and mark tasks as completed or not.
 
-## Demo video of full project -> [Youtube](https://www.youtube.com/watch?v=oEGVtltJWh0)
+## Complete project video -> [Youtube](https://www.youtube.com/watch?v=oEGVtltJWh0)
 ## How to Run the Frontend
 
 Follow the steps below to set up and run the frontend part of this project:
