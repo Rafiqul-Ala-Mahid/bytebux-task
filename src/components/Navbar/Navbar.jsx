@@ -60,10 +60,16 @@ const Navbar = () => {
               Create Task
             </Link>
             <Link
-              to="/"
+              to="/register"
               className="block mt-4 mx-4 lg:inline-block lg:mt-0 text-white hover:text-gray-200 transition duration-300"
             >
-              About
+              SignUp
+            </Link>
+            <Link
+              to="/login"
+              className="block mt-4 mx-4 lg:inline-block lg:mt-0 text-white hover:text-gray-200 transition duration-300"
+            >
+              SignIn
             </Link>
           </div>
         </div>
